@@ -1,0 +1,71 @@
+<!doctype html>
+<html lang="zh-CN">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <title>Investing 生成器</title>
+    <link rel="stylesheet" href="./style.css" />
+  </head>
+  <body>
+    <main class="page">
+      <section class="controls">
+        <h2>输入</h2>
+        <div class="grid two">
+          <label>
+            <span>初始金额（USD）</span>
+            <input id="initial" type="number" step="0.01" placeholder="100000.00" value="100000" />
+          </label>
+          <label>
+            <span>总金额（USD）</span>
+            <input id="amount" type="number" step="0.01" placeholder="200000.00" value="200000" />
+          </label>
+        </div>
+        <div class="grid">
+          <label>
+            <span>收益（%）</span>
+            <input id="percent" type="number" step="0.01" placeholder="100.00" value="100" />
+          </label>
+        </div>
+
+        <fieldset class="periods">
+          <legend>周期</legend>
+          <div class="chips" id="periodChips">
+            <label><input type="radio" name="period" value="1D" />1D</label>
+            <label><input type="radio" name="period" value="1W" />1W</label>
+            <label><input type="radio" name="period" value="1M" />1M</label>
+            <label><input type="radio" name="period" value="3M" checked />3M</label>
+            <label><input type="radio" name="period" value="YTD" />YTD</label>
+            <label><input type="radio" name="period" value="1Y" />1Y</label>
+            <label><input type="radio" name="period" value="ALL" />ALL</label>
+          </div>
+        </fieldset>
+
+        <div class="actions">
+          <button id="btnRender" class="primary">生成预览</button>
+          <button id="btnDownload" disabled>下载 PNG</button>
+        </div>
+        <p id="message" class="hint"></p>
+
+        <div class="grid two" style="margin-top:8px">
+          <label>
+            <span>预览缩放</span>
+            <input id="zoom" type="range" min="0.2" max="1" step="0.05" value="0.35" />
+          </label>
+          <div class="hint" id="zoomLabel">35%</div>
+        </div>
+      </section>
+
+      <section class="preview">
+        <h2>预览</h2>
+        <div class="canvasWrap">
+          <canvas id="canvas" width="1290" height="2800"></canvas>
+        </div>
+        <p class="hint">模板固定来自 `assets/template.png`。请将你的模板图放入 `assets/` 目录并命名为 `template.png`。</p>
+      </section>
+    </main>
+
+    <script src="./app.js"></script>
+  </body>
+  </html>
+
+
