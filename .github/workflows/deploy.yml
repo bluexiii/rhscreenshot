@@ -11,8 +11,6 @@ permissions:
   contents: read
   pages: write
   id-token: write
-  # 允许修改仓库设置以启用 Pages
-  administration: write
 
 # 防止并发部署
 concurrency:
